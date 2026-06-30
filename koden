@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>BACKONTRACK8818</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #0f0f1a;
+  color: white;
+}
+
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+}
+
+.navbar nav a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+/* BUTTON */
+button {
+  cursor: pointer;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+}
+
+.discord-btn {
+  background: #5865F2;
+  color: white;
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+}
+
+.hero h1 {
+  font-size: 3rem;
+}
+
+/* SECTIONS */
+.section {
+  padding: 80px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+/* GLASS */
+.glass {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 30px;
+  margin-top: 40px;
+}
+
+/* STREAM */
+.stream-container {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.stream-container iframe {
+  flex: 1;
+  min-width: 300px;
+  border: none;
+}
+
+/* SOCIALS */
+.socials a {
+  display: inline-block;
+  margin: 5px;
+  padding: 10px;
+  background: rgba(255,255,255,0.1);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+/* POPUP */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.popup-content {
+  background: rgba(255,255,255,0.05);
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<div class="navbar">
+  <div>🎮 StreamHub</div>
+
+  <nav>
+    <a href="#home">Hjem</a>
+    <a href="#stream">Stream</a>
+    <a href="#about">Om</a>
+    <a href="#schedule">Plan</a>
+    <a href="#socials">Sosialt</a>
+  </nav>
+
+  <button class="discord-btn" onclick="openDiscord()">Discord</button>
+</div>
+
+<!-- HERO -->
+<section id="home" class="hero">
+  <div>
+    <h1>Velkommen til Backontrack8818</h1>
+    <p>Gaming • Chill • Community • Yapp</p>
+
+    <br/>
+
+    <button onclick="document.getElementById('stream').scrollIntoView({behavior:'smooth'})">
+      Se live
+    </button>
+
+    <button onclick="openDiscord()">
+      Discord
+    </button>
+  </div>
+</section>
+
+<!-- STREAM -->
+<section id="stream" class="section glass">
+  <h2>📺 Live Stream</h2>
+
+  <div class="stream-container">
+
+    <!-- TWITCH STREAM -->
+    <iframe
+      src="https://player.twitch.tv/?channel=YOUR_CHANNEL&parent=localhost"
+      height="400"
+      width="100%"
+      allowfullscreen>
+    </iframe>
+
+    <!-- TWITCH CHAT -->
+    <iframe
+      src="https://www.twitch.tv/embed/YOUR_CHANNEL/chat?parent=localhost"
+      height="400">
+    </iframe>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section glass">
+  <h2>👤 Om meg</h2>
+  <p>
+    Velkommen til BackOnTrack8818!
+
+    Jeg er en ny streamer som elsker å skape underholdende innhold.
+    IRL, fotball, gaming og mer. Målet er et hyggelig community.
+
+    Brukernavn: BackOnTrack8818
+  </p>
+</section>
+
+<!-- SCHEDULE -->
+<section id="schedule" class="section glass">
+  <h2>📅 Streamplan</h2>
+  <p>Mandag: 18:00</p>
+  <p>Onsdag: 19:00</p>
+  <p>Fredag: 20:00</p>
+</section>
+
+<!-- SOCIALS -->
+<section id="socials" class="section glass">
+  <h2>🌍 Sosiale medier</h2>
+
+  <div class="socials">
+    <a href="#">Twitch</a>
+    <a href="#">YouTube</a>
+    <a href="#">TikTok</a>
+    <a href="#">Twitter/X</a>
+  </div>
+</section>
+
+<!-- POPUP -->
+<div id="popup" class="popup hidden">
+  <div class="popup-content">
+    <h2>Discord</h2>
+    <p>Bli med i community!</p>
+
+    <button onclick="window.open('https://discord.gg/FH4ZAtpzk')">
+      Åpne Discord
+    </button>
+
+    <button onclick="closeDiscord()">Lukk</button>
+  </div>
+</div>
+
+<script>
+function openDiscord() {
+  document.getElementById("popup").classList.remove("hidden");
+}
+
+function closeDiscord() {
+  document.getElementById("popup").classList.add("hidden");
+}
+</script>
+
+</body>
+</html>
